@@ -47,7 +47,7 @@ describe("Booking Function Project3", () => {
   const verifybooking = [
     "DEPART",
     "IL to FL",
-    "Sun Jun 02 2024",
+    booking.getDate(7),
     "Number of Passengers: 1",
     "Passenger 1: Senior (65+)",
     "Cabin class: Business",
@@ -95,10 +95,10 @@ describe("Booking Function Project3", () => {
   const verifybooking4 = [
     "DEPART",
     "CA to IL",
-    "Sun Jun 02 2024",
+    booking.getDate(7),
     "RETURN",
     "IL to CA",
-    "Tue Jul 02 2024",
+    booking.getDate(37),
     "Number of Passengers: 1",
     "Passenger 1: Adult (16-64)",
     "Cabin class: First",
@@ -149,10 +149,10 @@ describe("Booking Function Project3", () => {
   const verifybooking5 = [
     "DEPART",
     "NY to TX",
-    "Mon May 27 2024",
+    booking.getDate(0),
     "RETURN",
     "TX to NY",
-    "Mon May 27 2024",
+    booking.getDate(1),
     "Number of Passengers: 2",
     "Passenger 1: Adult (16-64)",
     "Passenger 2: Child (2-11)",
@@ -168,7 +168,8 @@ describe("Booking Function Project3", () => {
       passengers: "2",
       passengerType: "Adult (16-64)",
       passengerType2: "Child (2-11)",
-      daysToAdd: 1,
+      daysToAdd: 0,
+      daystoReturn: 1,
     },
   ];
 
@@ -183,6 +184,7 @@ describe("Booking Function Project3", () => {
         passengerType,
         passengerType2,
         daysToAdd,
+        daystoReturn,
       } = testCase;
 
       booking.specificRadio(radioIndex).click();
@@ -193,6 +195,7 @@ describe("Booking Function Project3", () => {
       booking.Passanger1(passengerType);
       booking.Passanger2(passengerType2);
       booking.date7days(daysToAdd);
+      booking.dateToReturn(daystoReturn);
     });
 
     booking.bookButton().click({ force: true });
